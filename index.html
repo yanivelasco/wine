@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <button id="post">POST</button>
-    
-
-    <!-- <script>
-        function get (){};
-        function post (){;
-            const newWine = {
-                name: "Dannie's Wine",
-                year: 1986,
-                grapes: [],
-                type: "white",
-                origin: {
-                    country:"Denamrk",
-                    region: "Sjealand"
-                }
-        }
-
-
-        };
-
+    <script>
+      document.querySelector("#post").addEventListener("click", post);
+      function get() {
         fetch("https://agobdkzuqpxxwqnufwts.supabase.co/rest/v1/Wine", {
-	  method: "get",
-	  headers: {
-        "Content-Type"
-	    apikey: "your-anon-key",
-	  },
-      body: JSON.stringify(newline),
-	})
-	  .then((e) => e.json())
-	  .then((e) => console.log(e));
-    </script> -->
-</body>
+          method: "get",
+          headers: {
+            apikey:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnb2Jka3p1cXB4eHdxbnVmd3RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk5MTkyNTksImV4cCI6MTk5NTQ5NTI1OX0.RXPOzLz8V2mf_5XK3iuUaMeEZ3xj-TH98C4zt21HTrM",
+          },
+        })
+          .then((e) => e.json())
+          .then((e) => console.log(e));
+      }
+      function post() {
+        const newWine = {
+          name: "Dannie's Wine",
+          grapes: ["pinor lightblue"],
+          year: 1986,
+          type: "white",
+            origin: {
+            country: "Denmark",
+            region: "Nordsjælland",
+          },
+          isGood: false,
+        };
+        fetch("https://agobdkzuqpxxwqnufwts.supabase.co/rest/v1/Wine", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+            Prefer: "return=representation",
+            apikey:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnb2Jka3p1cXB4eHdxbnVmd3RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk5MTkyNTksImV4cCI6MTk5NTQ5NTI1OX0.RXPOzLz8V2mf_5XK3iuUaMeEZ3xj-TH98C4zt21HTrM",
+          },
+          body: JSON.stringify(newWine),
+        })
+          .then((e) => e.json())
+          .then((e) => console.log(e));
+      }
+    </script>
+  </body>
 </html>
