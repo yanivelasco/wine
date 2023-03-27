@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="post">POST</button>
+    
+
+    <script>
+        function get (){};
+        function post (){;
+            const newWine = {
+                name: "Dannie's Wine",
+                year: 1986,
+                grapes: [],
+                type: "white",
+                origin: {
+                    country:"Denamrk",
+                    region: "Sjealand"
+                }
+        }
+
+
+        };
+
+        fetch("https://agobdkzuqpxxwqnufwts.supabase.co/rest/v1/Wine", {
+	  method: "get",
+	  headers: {
+        "Content-Type"
+	    apikey: "your-anon-key",
+	  },
+      body: JSON.stringify(newline),
+	})
+	  .then((e) => e.json())
+	  .then((e) => console.log(e));
+    </script>
+</body>
+</html>
